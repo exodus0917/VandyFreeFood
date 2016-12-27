@@ -44,6 +44,8 @@ def handle_messages():
 
     return "ok", 200
 
+# This method will send the string to the recipient
+# @param recipient ID and a string
 
 def send_message(recipient_id, message_text):
     log("sending message to {recipient}: {text}".format(recipient=recipient_id, text=message_text))
@@ -69,7 +71,8 @@ def send_message(recipient_id, message_text):
 
 
 def log(message):  # simple wrapper for logging to stdout on heroku
-    print(str(message))
+    print str(message)
+    #print(str(message))
     sys.stdout.flush()
 
 
