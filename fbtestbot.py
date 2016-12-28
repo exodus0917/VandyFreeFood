@@ -31,6 +31,9 @@ def handle_messages():
                     recipient_id = messaging_event["recipient"]["id"]
                     message_text = messaging_event["message"]["text"]
 
+                    # Need to interpret the message_text (use the interpreter pattern)
+                    # Create an AnsweringMachine instance with the message_text as a param
+                    #   then call the answer method to get the appropriate answer
                     send_message(sender_id, message_text)
 
                 if messaging_event.get("delivery"):
@@ -71,8 +74,8 @@ def send_message(recipient_id, message_text):
 
 
 def log(message):  # simple wrapper for logging to stdout on heroku
-    print str(message)
-    #print(str(message))
+    #print str(message)      # for python2
+    print(str(message))    # for python3
     sys.stdout.flush()
 
 
