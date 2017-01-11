@@ -39,8 +39,9 @@ def handle_messages():
                     # send_message(sender_id,
                     #              "Welcome, I am here to tell you about all the events that offer free food!")
                     # send_message(sender_id, message_text)
-                    temp = AnsweringMachine(message_text)
-                    send_message(sender_id, temp.answer())
+                    # temp = AnsweringMachine(message_text)
+                    # send_message(sender_id, temp.answer())
+                    send_button_message(sender_id, 'Lets go to naver!')
 
 
                 if messaging_event.get("delivery"):
@@ -78,6 +79,34 @@ def send_message(recipient_id, message_text):
     if r.status_code != 200:
         log(r.status_code)
     log(r.text)
+
+def send_button_message(recipient_id, text):
+    """Send text messages to the specified recipient.
+            https://developers.facebook.com/docs/messenger-platform/send-api-reference/button-template
+            Input:
+                recipient_id: recipient id to send to
+                text: text of message to send
+                buttons: buttons to send
+            Output:
+                Response from API as <dict>
+    """
+    buttons = [
+        {
+            'type': 'web_url',
+            'url': 'http://www.naver.com',
+            'title': 'Show Naver'
+        }
+    ]
+    send_message(recipient_id, {
+        "attachment": {
+            "type": "template",
+            "payload": {
+                "template_type": "button",
+                "text": text,
+                "buttons": buttons
+            }
+        }
+    })
 
 
 def log(message):  # simple wrapper for logging to stdout on heroku
