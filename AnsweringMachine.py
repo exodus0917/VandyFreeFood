@@ -22,7 +22,7 @@ class AnsweringMachine:
             i += 1
         message = message[i:]
 
-        # Putting all the words inside the message into a set
+        # Putting all the words inside the message into a set called self._words
         j = 0
         for i in range(len(message)):
             if message[i] == ' ':
@@ -33,9 +33,10 @@ class AnsweringMachine:
 
         # Interpretation will happen here - User the interpreter pattern here
         # runs a loop to interpret
-        self._answer = ''
-
-
+        if 'today' in self._words:
+            self._answer = 'Today there are 2 events!'
+        else:
+            self._answer = 'Sorry I can only tell you about the events for today'
 
     def answer(self):
         return self._answer
