@@ -39,8 +39,8 @@ def handle_messages():
                     # send_message(sender_id,
                     #              "Welcome, I am here to tell you about all the events that offer free food!")
                     # send_message(sender_id, message_text)
-                    # temp = AnsweringMachine(message_text)
-                    # send_message(sender_id, temp.answer())
+                    temp = AnsweringMachine(message_text)
+                    send_message(sender_id, temp.answer())
                     send_button_message(sender_id, 'Lets go to naver!')
 
 
