@@ -42,7 +42,7 @@ def handle_messages():
                     temp = AnsweringMachine(message_text)
                     send_message(sender_id, temp.answer())
                     send_button_message(sender_id, 'Lets go to naver!')
-                    app.post('/webhook/')
+                    # app.post('/webhook/')
 
 
                 if messaging_event.get("delivery"):
@@ -83,11 +83,11 @@ def send_message(recipient_id, message_text):
 
 def send_button_message(recipient_id, text):
     buttons = [
-        # {
-        #     'type': 'web_url',
-        #     'url': 'http://www.naver.com/',
-        #     'title': 'Show Naver'
-        # },
+        {
+            'type': 'web_url',
+            'url': 'http://www.naver.com/',
+            'title': 'Show Naver'
+        },
         {
             'type': 'postback',
             'title': 'Checking',
