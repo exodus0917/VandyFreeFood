@@ -16,26 +16,32 @@
 class AnsweringMachine:
     def __init__(self, message):
         message = message.lower()
-        self._words = set()
 
-        # Erasing empty spaces in the beginning for the message
-        i = 0
-        while message[i] == ' ':
-            i += 1
-        message = message[i:]
 
-        # Putting all the words inside the message into a set called self._words
-        j = 0
-        for i in range(len(message)):
-            if message[i] == ' ':
-                self._words.add(message[j:i])
-                j = i + 1
-        self._message = message
+        # self._words = set()
+        #
+        # # Erasing empty spaces in the beginning for the message
+        # i = 0
+        # while message[i] == ' ':
+        #     i += 1
+        # message = message[i:]
+        #
+        # # Putting all the words inside the message into a set called self._words
+        # j = 0
+        # if ' ' not in message:
+        #     self._words.add(message)
+        # else:
+        #     for i in range(len(message)):
+        #         if message[i] == ' ':
+        #             self._words.add(message[j:i])
+        #             j = i + 1
+        # self._message = message
 
 
         # Interpretation will happen here - User the interpreter pattern here
         # runs a loop to interpret
-        if 'today' in self._words:
+
+        if 'today' in message:
             self._answer = 'Today there are 2 events!'
         else:
             self._answer = 'Sorry I can only tell you about the events for today'

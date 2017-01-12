@@ -1,5 +1,5 @@
 # # Filename: Interpreter
-# Description: this class
+# Description:
 #
 # Author: Bumsu Jung
 # Creation Date: 12/30/16
