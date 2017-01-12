@@ -93,8 +93,8 @@ def send_button_message(recipient_id, text):
     buttons = [
         {
             'type': 'web_url',
-            'url': 'http://www.naver.com',
-            'title': 'Show Naver'
+            'url': 'https://www.youtube.com/',
+            'title': 'Show Youtube'
         }
     ]
     send_message(recipient_id, {
