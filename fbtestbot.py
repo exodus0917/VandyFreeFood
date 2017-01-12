@@ -81,20 +81,17 @@ def send_message(recipient_id, message_text):
     log(r.text)
 
 def send_button_message(recipient_id, text):
-    """Send text messages to the specified recipient.
-            https://developers.facebook.com/docs/messenger-platform/send-api-reference/button-template
-            Input:
-                recipient_id: recipient id to send to
-                text: text of message to send
-                buttons: buttons to send
-            Output:
-                Response from API as <dict>
-    """
     buttons = [
+        # {
+        #     'type': 'web_url',
+        #     'url': 'http://www.naver.com/',
+        #     'title': 'Show Naver'
+        # },
         {
-            'type': 'web_url',
-            'url': 'https://www.youtube.com/',
-            'title': 'Show Youtube'
+            'type': 'postback',
+            'title': 'Checking',
+            'payload': 'I am the payload!'
+
         }
     ]
     # send_message(recipient_id, {
