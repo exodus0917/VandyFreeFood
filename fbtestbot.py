@@ -97,7 +97,28 @@ def send_button_message(recipient_id, text):
             'title': 'Show Youtube'
         }
     ]
-    send_message(recipient_id, {
+    # send_message(recipient_id, {
+    #     "attachment": {
+    #         "type": "template",
+    #         "payload": {
+    #             "template_type": "button",
+    #             "text": text,
+    #             "buttons": buttons
+    #         }
+    #     }
+    # })
+
+    params = {
+        "access_token": PAGE_ACCESS_TOKEN
+    }
+    headers = {
+        "Content-Type": "application/json"
+    }
+    data = json.dumps({
+        "recipient": {
+            "id": recipient_id
+        },
+        "message": {
         "attachment": {
             "type": "template",
             "payload": {
@@ -106,7 +127,12 @@ def send_button_message(recipient_id, text):
                 "buttons": buttons
             }
         }
+    }
     })
+    r = requests.post("https://graph.facebook.com/v2.6/me/messages", params=params, headers=headers, data=data)
+    if r.status_code != 200:
+        log(r.status_code)
+    log(r.text)
 
 
 def log(message):  # simple wrapper for logging to stdout on heroku
