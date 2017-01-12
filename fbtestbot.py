@@ -41,7 +41,7 @@ def handle_messages():
                     # send_message(sender_id, message_text)
                     temp = AnsweringMachine(message_text)
                     send_message(sender_id, temp.answer())
-                    send_button_message(sender_id, 'Lets go to naver!')
+                    # send_button_message(sender_id, 'Lets go to naver!')
                     # app.post('/webhook/')
 
 
